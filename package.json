@@ -1,0 +1,16 @@
+{
+  "name": "list-workers-kv",
+  "version": "1.0.0",
+  "description": "List key and value of Cloudflare Workers KV NAMESPACE",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/initdc/List-Workers-KV.git"
+  },
+  "author": "initdc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/initdc/List-Workers-KV/issues"
+  },
+  "homepage": "https://github.com/initdc/List-Workers-KV#readme"
+}
