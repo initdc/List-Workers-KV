@@ -5,22 +5,6 @@ const wrapper = 20;
 
 addEventListener("fetch", (event) => event.respondWith(handleRequest()));
 
-String.prototype.rjust = function (length, char) {
-  var fill = [];
-  while (fill.length + this.length < length) {
-    fill[fill.length] = char;
-  }
-  return fill.join("") + this;
-};
-
-String.prototype.ljust = function (length, char) {
-  var fill = [];
-  while (fill.length + this.length < length) {
-    fill[fill.length] = char;
-  }
-  return this + fill.join("");
-};
-
 async function handleRequest() {
   // await NS.put("a", "apple");
 
@@ -31,11 +15,12 @@ async function handleRequest() {
     return new Response("List is empty", { status: 404 });
   }
 
-  let content = new String();
-  for (const key of keys) {
-    const name = key.name;
-    const value = (await NS.get(name)) || "Value not found";
-    content += (name + base).ljust(wrapper, " ") + value + "\n\n";
+  const length = keys.length;
+
+  for (let i = 0; i < length; i++) {
+    const name = keys[i].name
+    const value = await NS.get(name)
+    keys[i].value = value;
   }
-  return new Response(content, { status: 200 });
+  return new Response(JSON.stringify(keys, undefined, 2), { status: 200 });
 }
