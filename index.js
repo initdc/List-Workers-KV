@@ -1,7 +1,5 @@
 const NS = SUB;
-
-const base = ".example.com";
-const wrapper = 20;
+const STORE = OCE;
 
 addEventListener("fetch", (event) => event.respondWith(handleRequest()));
 
@@ -18,9 +16,14 @@ async function handleRequest() {
   const length = keys.length;
 
   for (let i = 0; i < length; i++) {
-    const name = keys[i].name
-    const value = await NS.get(name)
+    const name = keys[i].name;
+    const value = await NS.get(name);
     keys[i].value = value;
   }
-  return new Response(JSON.stringify(keys, undefined, 2), { status: 200 });
+  const content = JSON.stringify(keys);
+
+  await STORE.put("sub-list", content);
+  // const storeContent = await STORE.get("sub-list");
+
+  return new Response(content, { status: 200 });
 }

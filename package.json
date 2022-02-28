@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/initdc/List-Workers-KV#readme",
   "scripts": {
-    "dev": "miniflare index.js -k SUB"
+    "dev": "miniflare index.js -k SUB -k OCE"
   },
   "devDependencies": {
     "miniflare": "^2.3.0"
