@@ -12,5 +12,11 @@
   "bugs": {
     "url": "https://github.com/initdc/List-Workers-KV/issues"
   },
-  "homepage": "https://github.com/initdc/List-Workers-KV#readme"
+  "homepage": "https://github.com/initdc/List-Workers-KV#readme",
+  "scripts": {
+    "dev": "miniflare index.js -k SUB"
+  },
+  "devDependencies": {
+    "miniflare": "^2.3.0"
+  }
 }
